@@ -1,17 +1,25 @@
 <template>
  <div class="options-container">
    <ul>
-     <li>1</li>
-     <li>2</li>
-     <li>3</li>
-     <li>4</li>
-   </ul>
+     <li 
+      v-for="pokemon in options"
+      :key="pokemon.id"
+      @click="$emit( 'selectedPokemon', pokemon.id )"
+     >
+       {{ pokemon.name }}
+     </li>
+    </ul>
  </div>
 </template>
 
 <script>
 export default {
-
+  props:{
+    options:{
+      type: Array,
+      required: true,
+    }
+  }
   
 
 }
