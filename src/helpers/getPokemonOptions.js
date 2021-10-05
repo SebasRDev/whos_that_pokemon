@@ -7,7 +7,7 @@ export const getPokemons = () => {
 
 }
 
-export const getPokemonOptions = async() => {
+const getPokemonOptions = async() => {
 
   const mixedPokemons = getPokemons()
                           .sort( () => Math.random() - 0.5 )
@@ -40,5 +40,5 @@ export const getPokemonNames = async([a,b,c,d] = []) => {
 
 }
 
-// export default getPokemonOptions;
+export default getPokemonOptions;
 

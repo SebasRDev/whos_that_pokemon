@@ -1,4 +1,4 @@
-import { getPokemons } from '@/helpers/getPokemonOptions'
+import getPokemonOptions, { getPokemons, getPokemonNames } from '@/helpers/getPokemonOptions'
 
 describe('getPokemonOptions',()=>{
 
@@ -12,12 +12,46 @@ describe('getPokemonOptions',()=>{
 
   })
 
-  test('debe retornaar un array de 4 elementos con nombres de pokemons', ()=>{
+  test('debe retornaar un array de 4 elementos con nombres de pokemons', async ()=>{
+
+    const expected = [
+      { name: 'bulbasaur', id: 1 },
+      { name: 'ivysaur', id: 2 },
+      { name: 'venusaur', id: 3 },
+      { name: 'charmander', id: 4 }
+    ]
+
+    const pokemonNames = await getPokemonNames([1,2,3,4])
+    expect(pokemonNames).toEqual(expected)
 
   })
 
-  test('getPokemonOptions debe retornar un array mezclado', ()=>{
+  test('getPokemonOptions debe retornar un array mezclado', async()=>{
+    
+    const pokemons = await getPokemonOptions()
 
+    expect(pokemons.length).toBe(4)
+    expect(pokemons).toEqual(
+      [
+        { 
+          name: expect.any(String), 
+          id: expect.any(Number)
+        },
+        { 
+          name: expect.any(String), 
+          id: expect.any(Number)
+        },
+        { 
+          name: expect.any(String), 
+          id: expect.any(Number) 
+        },
+        { 
+          name: expect.any(String), 
+          id: expect.any(Number)
+        }
+      ]
+    )
+  
   })
 
 })
