@@ -29,6 +29,7 @@ export default {
   /* Pokemon Options */
   ul {
       list-style-type: none;
+      padding: 0;
   }
   li {
       background-color: white;
