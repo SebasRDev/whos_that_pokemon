@@ -1,4 +1,5 @@
 import getPokemonOptions, { getPokemons, getPokemonNames } from '@/helpers/getPokemonOptions'
+import { pokemons } from '../mocks/pokemons.mock'
 
 describe('getPokemonOptions',()=>{
 
